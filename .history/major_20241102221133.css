@@ -1,0 +1,25 @@
+<div class="container">
+<h1 class="title">教室預借紀錄</h1>
+<table>
+    <thead>
+        <tr>
+            <th>教室</th>
+            <th>預約日期</th>
+            <th>預約時間</th>
+            <th>狀態</th>
+            <th>取消預借</th>
+        </tr>
+    </thead>
+    <tbody id="reservationTable">
+        <!-- 預約紀錄資料將使用JavaScript填充 -->
+    </tbody>
+</table>
+
+<div class="pagination">
+    <button onclick="prevPage()" style="color: #095bae;"><</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()" style="color: #095bae;">></button>
+</div>
+</div>
+
+<script src="reservation_record.js"></script>

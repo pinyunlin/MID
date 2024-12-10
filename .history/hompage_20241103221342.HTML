@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約記錄</title>
+    <link rel="stylesheet" href="hompage.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-content">
+            <h7 style="font-size: 15px;color: #c9f9f8;">管理學院</h7>
+            <h5 style="font-size: 19px;"><b>教室預借系統</b></h5>
+        </div>
+
+        <div class="navbar-right ml-auto d-flex">
+            <!-- 管理者頁面 -->
+            <div class="nav-item">
+                <a class="nav-link" href="controler.html">管理者介面</a>
+            </div>
+
+            <!-- 教室預借 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link" href="#" id="bookingDropdown">
+                    教室預借
+                </a>
+                <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                    <a class="dropdown-item" href="reservation.html">學年預借</a>
+                    <a class="dropdown-item" href="reservation2.html">平時預借</a>
+                </div>
+            </div>
+
+            <!-- 個人歷史預借 -->
+            <div class="nav-item">
+                <a class="nav-link" href="reservation_record.html">預借紀錄</a>
+            </div>
+
+            <!-- 個人頭像 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="avatar.png" alt="User Avatar" class="avatar">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="login.html">登出</a>
+                </div>
+            </div>
+            <!--主頁-->
+            <div class="nav-item">
+                <a class="nav-link" href="hompage.HTML" style="font-size: 20px"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="reser1">
+    <!-- 主頁內容區域 -->
+    <div class="main-section">
+        <div class="cover-content">
+            <div class="function-icons">
+                <div class="icon-item">
+                    <a href="controler.html" id="aaaa">
+                        <i class="fas fa-user-cog fa-3x"></i>
+                        <p>管理者介面</p>
+                    </a>
+                </div>
+                <div class="icon-item" >
+                    <a href="reservation.html"id="aaaa">
+                        <i class="fas fa-calendar-alt fa-3x" style="color: rgb(174, 226, 43);" ></i>
+                        <p style="color: rgb(165, 226, 43);">學年預借</p>
+                    </a>
+                </div>
+                <div class="icon-item">
+                    <a href="reservation2.html" id="aaaa">
+                        <i class="fas fa-calendar-day fa-3x" style="color: rgb(43, 226, 101);"></i>
+                        <p style="color: rgb(43, 226, 67);">平時預借</p>
+                    </a>
+                </div>
+                <div class="icon-item">
+                    <a href="reservation_record.html" id="aaaa">
+                        <i class="fas fa-file-alt fa-3x" style="color: blueviolet;"></i>
+                        <p style="color: blueviolet;">預借紀錄</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 說明欄 -->
+    
+    <section class="info-section">
+            <h2 class="title">注意事項</h2>
+            <hr style="margin-bottom: 30px;">
+            <p>1. 使用者僅能預借 30 天內的教室。</p>
+            <p>2. 學期時段為 <span id="semester-time"></span>（資料連接後端）。</p>
+            <p>3. 請提前確認教室可用性，並準時結束使用，以便下一位使用者使用。</p>
+        </section>
+</div>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>輔仁大學管理學院 | 電話：02-1234-5678 | 電郵：info@fju.edu.tw</p>
+        <script src="front_page.JS"></script>
+    </footer>
+
+    <script>
+        
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#reservationTable tr');
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(input));
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>
+

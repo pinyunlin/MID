@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約記錄</title>
+    <link rel="stylesheet" href="controler.css">
+    <style>
+    
+    .search-fields {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-fields input, .search-fields button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchButton {
+    background-color: #095bae;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #78bdd8;
+}
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-left: 70px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    border: 1px solid #095bae;
+    background-color: transparent;
+    color: #095bae;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    
+    width: 30px;
+}
+
+.pagination button:hover {
+    background-color: #095bae;
+    color: #ffffff;
+}
+
+#pageInfo {
+    font-size: 16px;
+}
+
+
+
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-content">
+            <h7 style="font-size: 15px;color: #c9f9f8;">管理學院</h7>
+            <h5 style="font-size: 19px;"><b>教室預借系統</b></h5>
+        </div>
+
+        <div class="navbar-right ml-auto d-flex">
+
+                <a class="nav-link" href="controler.html">管理者介面</a>
+
+
+            <!-- 教室預借 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link" href="#" id="bookingDropdown">
+                    教室預借
+                </a>
+                <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                    <a class="dropdown-item" href="../reservation.html">學年預借</a>
+                    <a class="dropdown-item" href="../reservation2.html">平時預借</a>
+                </div>
+            </div>
+
+            <!-- 個人歷史預借 -->
+            <div class="nav-item">
+                <a class="nav-link" href="../reservation_record.html">預借紀錄</a>
+            </div>
+
+            <!-- 個人頭像 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="avatar.png" alt="User Avatar" class="avatar">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="login.html">登出</a>
+                </div>
+            </div>
+            <!--主頁-->
+            <div class="nav-item">
+                <a class="nav-link" href="hompage.HTML" style="font-size: 20px"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+<div class="sidebar">
+    <ul>
+        <li style="--delay: 1;"><a href="controler.html">帳號管理</a></li>
+        <li style="--delay: 2;"><a href="newuser.html">新增權限</a></li>
+        <li style="--delay: 3;"><a href="analysis.html">教室借用分析</a></li>
+        <li style="--delay: 4;"><a href="term-setting.html">學期時段設定</a></li>
+        <li style="--delay: 5;"><a href="history_data.html">學期借用資料</a></li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h2 class="title" style="">歷史借用資料</h2>
+    
+            <!-- 搜尋欄位 -->
+            <form id="searchForm" onsubmit="searchHistory(); return false;">
+                <div class="search-fields">
+                    <input type="text" id="yearSearch" placeholder="年度">
+                    <input type="text" id="semesterSearch" placeholder="上下學期">
+                    <input type="date" id="dateSearch" placeholder="日期">
+                    <input type="text" id="roomSearch" placeholder="教室">
+                    <input type="text" id="nameSearch" placeholder="姓名">
+                    <input type="text" id="studentIDSearch" placeholder="學號">
+                    <input type="text" id="timeSearch" placeholder="時間段">
+                    <button type="submit" id="searchButton">確認查詢</button>
+                </div>
+            </form>
+    
+            <!-- 歷史借用資料表格 -->
+            <section class="admin-section">
+                <table class="table" id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>年度</th>
+                            <th>上下學期</th>
+                            <th>日期</th>
+                            <th>教室</th>
+                            <th>姓名</th>
+                            <th>學號</th>
+                            <th>時間段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 借用資料將由 JavaScript 動態插入 -->
+                    </tbody>
+                </table>
+                <div id="historyPagination" class="pagination">
+                    <button id="prevPage" onclick="changePage(-1)"><</button>
+                    <span id="pageInfo">1 / 1</span>
+                    <button id="nextPage" onclick="changePage(1)">></button>
+                </div>
+                
+            </section>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>輔仁大學管理學院 | 電話：02-1234-5678 | 電郵：info@fju.edu.tw</p>
+        <script src="front_page.JS"></script>
+    </footer>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", () => {
+    // 假設的資料
+    const historyData = Array.from({ length: 20 }, (_, i) => ({
+        year: 2023,
+        semester: i % 2 === 0 ? "上學期" : "下學期",
+        date: `2023-11-${(i + 10).toString().padStart(2, '0')}`,
+        room: `教室${101 + i}`,
+        name: `使用者${i + 1}`,
+        studentID: `S${(1000 + i).toString().padStart(4, '0')}`,
+        timeSlot: `${8 + (i % 3) * 2}:00 - ${10 + (i % 3) * 2}:00`,
+    }));
+    let filteredData = [...historyData];
+
+    function displayHistory(page) {
+        const rowsPerPage = 10;
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const pageData = filteredData.slice(start, end);
+
+        const tbody = document.querySelector("#historyTable tbody");
+        tbody.innerHTML = "";
+        pageData.forEach(data => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${data.year}</td>
+                <td>${data.semester}</td>
+                <td>${data.date}</td>
+                <td>${data.room}</td>
+                <td>${data.name}</td>
+                <td>${data.studentID}</td>
+                <td>${data.timeSlot}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+
+
+    function searchHistory() {
+        const year = document.getElementById("yearSearch").value.toLowerCase();
+        const semester = document.getElementById("semesterSearch").value.toLowerCase();
+        const date = document.getElementById("dateSearch").value.toLowerCase();
+        const room = document.getElementById("roomSearch").value.toLowerCase();
+        const name = document.getElementById("nameSearch").value.toLowerCase();
+        const studentID = document.getElementById("studentIDSearch").value.toLowerCase();
+        const time = document.getElementById("timeSearch").value.toLowerCase();
+
+        filteredData = historyData.filter(data =>
+            (!year || data.year.toString().includes(year)) &&
+            (!semester || data.semester.toLowerCase().includes(semester)) &&
+            (!date || data.date.includes(date)) &&
+            (!room || data.room.toLowerCase().includes(room)) &&
+            (!name || data.name.toLowerCase().includes(name)) &&
+            (!studentID || data.studentID.toLowerCase().includes(studentID)) &&
+            (!time || data.timeSlot.toLowerCase().includes(time))
+        );
+
+        displayHistory(1);
+        setupPagination();
+    }
+
+    displayHistory(1);
+    setupPagination();
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const rowsPerPage = 10;
+    let currentPage = 1;
+    let totalPages = Math.ceil(historyData.length / rowsPerPage);
+
+    function displayHistory(page) {
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const pageData = filteredData.slice(start, end);
+
+        const tbody = document.querySelector("#historyTable tbody");
+        tbody.innerHTML = "";
+        pageData.forEach(data => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${data.year}</td>
+                <td>${data.semester}</td>
+                <td>${data.date}</td>
+                <td>${data.room}</td>
+                <td>${data.name}</td>
+                <td>${data.studentID}</td>
+                <td>${data.timeSlot}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // 更新頁碼資訊
+        document.getElementById("pageInfo").textContent = `${currentPage} / ${totalPages}`;
+        document.getElementById("prevPage").disabled = currentPage === 1;
+        document.getElementById("nextPage").disabled = currentPage === totalPages;
+    }
+
+    function setupPagination() {
+        totalPages = Math.ceil(filteredData.length / rowsPerPage);
+        displayHistory(currentPage);
+    }
+
+    window.changePage = function(direction) {
+        if ((direction === -1 && currentPage > 1) || (direction === 1 && currentPage < totalPages)) {
+            currentPage += direction;
+            displayHistory(currentPage);
+        }
+    };
+
+    function searchHistory() {
+        const year = document.getElementById("yearSearch").value.toLowerCase();
+        const semester = document.getElementById("semesterSearch").value.toLowerCase();
+        const date = document.getElementById("dateSearch").value.toLowerCase();
+        const room = document.getElementById("roomSearch").value.toLowerCase();
+        const name = document.getElementById("nameSearch").value.toLowerCase();
+        const studentID = document.getElementById("studentIDSearch").value.toLowerCase();
+        const time = document.getElementById("timeSearch").value.toLowerCase();
+
+        filteredData = historyData.filter(data =>
+            (!year || data.year.toString().includes(year)) &&
+            (!semester || data.semester.toLowerCase().includes(semester)) &&
+            (!date || data.date.includes(date)) &&
+            (!room || data.room.toLowerCase().includes(room)) &&
+            (!name || data.name.toLowerCase().includes(name)) &&
+            (!studentID || data.studentID.toLowerCase().includes(studentID)) &&
+            (!time || data.timeSlot.toLowerCase().includes(time))
+        );
+
+        currentPage = 1; // 重置到第一頁
+        setupPagination();
+    }
+
+    displayHistory(currentPage);
+    setupPagination();
+});
+
+    </script>
+
+    
+
+</body>
+</html>

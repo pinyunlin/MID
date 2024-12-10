@@ -1,0 +1,403 @@
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 導航欄 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #095bae;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* 內容 */
+.navbar-content h7,
+.navbar-content h5 {
+    color: #fcfcfc;
+    margin: 0;
+}
+
+/* 導航項目 */
+.navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* 連結 */
+.nav-link {
+    color: #ffffff;
+    margin-right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* 連結懸停效果 */
+.nav-link:hover {
+    color: #c9f9f8;
+}
+
+/* 個人頭像 */
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* 主要區域 */
+.main-section {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1c0c77;
+    text-align: center;
+    padding-top: 100px; /* 保留空間給固定的 Navbar */
+}
+
+.cover-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.cover-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cover-content button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #095bae;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cover-content button:hover {
+    background-color: #c9f9f8;
+}
+
+/* 頁尾 */
+.footer {
+    background-color: #095bae;
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 轉場效果 */
+.page-transition {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* 淡出效果 */
+.page-transition.fade-out {
+    opacity: 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .cover-content h2 {
+        font-size: 2em;
+    }
+
+    .cover-content p {
+        font-size: 1em;
+    }
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.reser1 {
+    padding-top: 50px;
+}
+
+/* 下拉選單樣式 */
+.dropdown-menu {
+    display: none; /* 預設隱藏下拉選單 */
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.83);
+    border: 1px solid #230c9641;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(3, 41, 193, 0.2);
+    z-index: 1000;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block; /* 滑鼠懸停顯示下拉選單 */
+}
+
+.title {
+    color: #000000;
+    font-size: 24px;
+    text-align: left;
+    border-left: 5px solid #095bae;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    margin-left: 90px;
+}
+
+.dropdown-item {
+    padding: 10px;
+    color: #1452b5;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #c9fff789; /* 懸停效果 */
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #095bae;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+
+}
+
+h2 {
+    color: #2446c1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Section Styling */
+.admin-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff; /* 使用背景色區分 */
+}
+
+.admin-section h3 {
+    color: #095bae;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+label {
+    margin-left: 90px;
+    display: block;
+    margin-top: 10px;
+    color: #0954d7;
+    padding-top: 10px;
+}
+
+input[type="text"], input[type="date"], select, textarea {
+    margin-left: 90px;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #2187da;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+button {
+    margin-left: 90px;
+    padding-top: 10px;
+    background:  #eef2fa;
+    color: #2c6d8f;
+    border:  1px solid #81a9b6;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+
+    width: 860px;
+}
+
+button:hover {
+    background-color: #78bdd8;
+    color: #ffffff;
+ 
+}
+
+/* Table Styling */
+.table {
+    margin-left: 90px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000000;
+
+}
+
+.table th {
+    background-color: #003366;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #095bae;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 120px;
+}
+
+/* 分頁區塊 */
+.pagination {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #095bae;
+    background: none;
+    cursor: pointer;
+    color: #095bae;
+}
+
+.pagination button.active {
+    background-color: #095bae;
+    color: #ffffff;
+}
+/* Sidebar */
+.sidebar {
+    margin-top: 19px;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 220px;
+    height: 100%;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    padding-top: 20px;
+    color: #3804d6;
+    box-shadow: 2px 0 10px rgba(82, 82, 172, 0.2);
+    transition: all 0.3s ease;
+}
+
+.sidebar h3 {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #532f2f;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 20px 0;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.sidebar li:hover {
+    transform: scale(1.05);
+}
+
+.sidebar a {
+    color: #161492;
+    text-decoration: none;
+    font-size: 1em;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: rgba(201, 226, 239, 0.354);
+    color: #06125678;
+}
+
+/* Main Content - 適應 Sidebar 寬度 */
+.main-content {
+    margin-left: 240px; /* 增加側邊欄的寬度 */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* 選單動畫效果 */
+.sidebar li a {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: slideIn 0.5s forwards;
+    animation-delay: calc(0.1s * var(--delay));
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* 搜尋欄與新增按鈕的容器 */
+.search-add-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 新增使用者按鈕 */
+#addUserButton {
+    font-size: 30px;
+    background-color: #095bae;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 180px;
+    transition: background-color 0.3s ease;
+}
+
+#addUserButton:hover {
+    background-color: #78bdd8;
+}
+

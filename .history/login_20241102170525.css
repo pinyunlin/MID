@@ -1,0 +1,116 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 背景圖片 */
+body {
+    background-image:linear-gradient(rgba(222, 217, 217, 0.801), rgba(190, 185, 185, 0.446)), url('fonr_page.jpg'); /* 使用背景圖片 */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 登入容器 */
+.login-container {
+    background-color: #ffffff85;
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.login-container.loading {
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+
+
+
+
+/* 表單標題 */
+h2 {
+    margin-bottom: 20px;
+    color: #333333;
+    font-weight: normal;
+}
+
+/* 表單輸入框 */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* 登入按鈕 */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0073e6; /* 藍色按鈕 */
+    color: #ffffff;
+    border: none;
+     border-radius: 3px; /* 圓角半徑稍微小一些 */
+    padding: 5px 15px; /* 調整內邊距，讓按鈕變小 */
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+button:disabled {
+    background-color: #666666;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+/* 忘記密碼連結 */
+
+
+.forgot-password:hover {
+    color: #33acca;
+}
+.not-registered-yet:hover {
+    color: #2ac9f0;
+}
+/* 設置 .additional-options 的樣式 */
+.additional-options {
+    display: flex; /* 使用 flexbox 將內容並排 */
+    justify-content: center; /* 置中顯示 */
+    align-items: center;
+    gap: 10px; /* 控制項目之間的間距 */
+    margin-top: 15px;
+    font-size: 14px;
+    color: #0073e6;
+}
+
+/* 分隔符號樣式 */
+.additional-options .separator {
+    color: #0073e6; /* 設定分隔符號顏色 */
+}
+
+/* 設置 hover 效果 */
+.additional-options .forgot-password:hover,
+.additional-options .not-registered-yet:hover {
+    color: #005bb5;
+    cursor: pointer;
+}

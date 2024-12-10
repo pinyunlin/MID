@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預借教室系統封面</title>
+    <link rel="stylesheet" href="hompage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <h7 style="font-size: 15px;color: #c9f9f8;">管理學院</h7>
+            <h5 style="font-size: 19px;"><b>教室預借系統</b></h5>
+        </div>
+        <div class="navbar-right">
+            <a href="#">設定頁面</a>
+            <a href="#">教室使用狀況頁面</a>
+            <a href="#">預借紀錄</a>
+            <a href="#">帳號管理</a>
+            <a href="#">登出</a>
+        </div>
+    </nav>
+
+    <div class="cover-container">
+        <div class="carousel-container">
+            <div class="carousel-item" style="background-image: url('img/classroom1.jpg');"></div>
+            <div class="carousel-item" style="background-image: url('img/classroom2.jpg');"></div>
+            <div class="carousel-item" style="background-image: url('img/classroom3.jpg');"></div>
+            <div class="carousel-item" style="background-image: url('img/classroom4.jpg');"></div>
+        </div>
+
+        <div class="info-box">
+            <h2>注意事項</h2>
+            <p>請確認您的預約時間和教室使用規則，並依照規定按時歸還教室。以下是一些預借教室的重要注意事項：</p>
+            <ul class="notice-list">
+                <li><span class="bullet">•</span> 教室使用完畢後請保持整潔。</li>
+                <li><span class="bullet">•</span> 不得將教室資源私自轉借他人使用。</li>
+                <li><span class="bullet">•</span> 請按時歸還教室，不得超時佔用。</li>
+                <li><span class="bullet">•</span> 如需取消預約，請提前通知管理單位。</li>
+                <li><span class="bullet">•</span> 禁止在教室內進行破壞性活動或非法行為。</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>輔仁大學管理學院 | 電話：02-1234-5678 | 電郵：info@fju.edu.tw</p>
+        <script src="front_page.JS"></script>
+    </footer>
+    
+    <script>
+        function deleteReservation(button) {
+            const row = button.closest('tr');
+            if (confirm('確定要刪除這筆預約嗎？')) {
+                row.remove();
+            }
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#reservationTable tr');
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(input));
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+
+    <script src="hompage.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div class="container">
+    <h2 class="title">歷史借用資料</h2>
+
+    <!-- 搜尋欄位 -->
+    <div class="search-fields">
+        <input type="text" id="yearSearch" placeholder="年度" onkeyup="searchHistory()">
+        <input type="text" id="semesterSearch" placeholder="上下學期" onkeyup="searchHistory()">
+        <input type="text" id="dateSearch" placeholder="日期" onkeyup="searchHistory()">
+        <input type="text" id="roomSearch" placeholder="教室" onkeyup="searchHistory()">
+        <input type="text" id="nameSearch" placeholder="姓名" onkeyup="searchHistory()">
+        <input type="text" id="studentIDSearch" placeholder="學號" onkeyup="searchHistory()">
+        <input type="text" id="timeSearch" placeholder="時間段" onkeyup="searchHistory()">
+    </div>
+
+    <!-- 歷史借用資料表格 -->
+    <section class="admin-section">
+        <table class="table" id="historyTable">
+            <thead>
+                <tr>
+                    <th>年度</th>
+                    <th>上下學期</th>
+                    <th>日期</th>
+                    <th>教室</th>
+                    <th>姓名</th>
+                    <th>學號</th>
+                    <th>時間段</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 借用資料將由 JavaScript 動態插入 -->
+            </tbody>
+        </table>
+        <div id="historyPagination" class="pagination"></div>
+    </section>
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教室預約</title>
+    <link rel="stylesheet" href="reservation.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <img src="images/classroom1.jpg" alt="Classroom 1">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item" style="background-image: url('img1.jpg');"></div>
+                <div class="carousel-item" style="background-image: url('img2.jpg');"></div>
+                <div class="carousel-item" style="background-image: url('img3.jpg');"></div>
+            </div>
+            <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+        <div class="form-container">
+            <h2>教室預約填表單</h2>
+            <form action="reserve_classroom.php" method="post">
+                <label for="classroom">選擇教室:</label>
+                <select id="classroom" name="classroom" required>
+                    <option value="A101">教室 A101</option>
+                    <option value="A202">教室 A202</option>
+                    <option value="A303">教室 A303</option>
+                </select>
+
+                <label for="date">日期:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">時間:</label>
+                <input type="time" id="time" name="time" required>
+
+                <input type="submit" value="提交預約">
+            </form>
+        </div>
+    </div>
+
+    <script src="reservation.js"></script>
+</body>
+</html>

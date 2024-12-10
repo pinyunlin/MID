@@ -1,0 +1,87 @@
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <h5><b>教室預借管理系統</b></h5>
+        </div>
+        <div class="navbar-right">
+            <a class="nav-link" href="controler.html">管理者介面</a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown">
+                    <img src="avatar.png" alt="User Avatar" class="avatar">
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="login.html">登出</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>管理功能</h3>
+        <ul>
+            <li><a href="#account-management">帳號管理</a></li>
+            <li><a href="#user-status">使用者借用狀況</a></li>
+            <li><a href="#chart-analysis">教室借用分析</a></li>
+            <li><a href="#term-setting">學期時段設定</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- 各區塊以卡片式設計顯示 -->
+            <section id="term-setting" class="card">
+                <h2>學期時段設定</h2>
+                <form action="controler.php" method="POST">
+                    <label for="termStart">開始日期：</label>
+                    <input type="date" id="termStart" name="termStart" required>
+                    <label for="termEnd">結束日期：</label>
+                    <input type="date" id="termEnd" name="termEnd" required>
+                    <button type="submit">確認</button>
+                </form>
+            </section>
+
+            <section id="account-management" class="card">
+                <h2>帳號管理</h2>
+                <form action="account_management.php" method="POST">
+                    <label for="account">帳號：</label>
+                    <input type="text" id="account" name="account" required>
+                    <label for="role">角色：</label>
+                    <select id="role" name="role">
+                        <option value="admin">管理者</option>
+                        <option value="user">使用者</option>
+                    </select>
+                    <button type="submit">新增帳號</button>
+                </form>
+            </section>
+
+            <section id="user-status" class="card">
+                <h2>使用者借用狀況</h2>
+                <table class="table" id="reservationTable">
+                    <thead>
+                        <tr>
+                            <th>帳號</th>
+                            <th>教室</th>
+                            <th>日期</th>
+                            <th>時間</th>
+                            <th>用途</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section id="chart-analysis" class="card">
+                <h2>教室借用分析</h2>
+                <canvas id="usageChart"></canvas>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>輔仁大學管理學院</p>
+    </footer>
+</body>

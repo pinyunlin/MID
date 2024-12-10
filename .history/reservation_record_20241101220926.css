@@ -1,0 +1,172 @@
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.title {
+    color: #122061;
+    font-size: 24px;
+    text-align: left;
+    border-left: 5px solid #095bae;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #095bae;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #adc6ee;
+}
+
+.status-btn {
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    background-color: transparent;
+    margin: 5px;
+}
+
+.status-btn:hover {
+    background-color: #e8f5e9;
+}
+
+.add-button {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color:#095bae;
+    color: rgb(225, 98, 98);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #095bae;
+    color: white;
+}
+
+/* 狀態的樣式 */
+.status-completed {
+    color: white;
+    background-color: #e74c3c;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-in-progress {
+    color: white;
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-not-started {
+    color: white;
+    background-color: #3498db;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* 刪除按鈕 */
+.delete-btn {
+    color: #934840;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* 隱藏刪除按鈕 */
+.hidden {
+    display: none;
+}
+
+/* 交錯的背景色 */
+tbody tr:nth-child(odd) {
+    background-color: #f0f0f0d7;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 10px;
+}
+/* 狀態按鈕樣式 */
+.status-button {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4CAF50;
+    background-color: #e8f5e9;
+    text-align: center;
+}
+
+.status-completed {
+    border-color: #4CAF50;
+    color: #4CAF50;
+    background-color: #e8f5e9;
+}
+
+.status-in-progress {
+    border-color: #FF9800;
+    color: #FF9800;
+    background-color: #FFF3E0;
+}
+
+.status-not-started {
+    border-color: #3498db;
+    color: #3498db;
+    background-color: #E3F2FD;
+}
+
+/* 隱藏刪除按鈕 */
+.delete-btn {
+    color: #ea7f73;
+    cursor: pointer;
+    display: inline-block;
+}
+.hidden {
+    display: none;
+}
+/* 刪除按鈕樣式 */
+.delete-btn {
+    color: #ff1900;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-btn:hover {
+    color: rgb(255, 170, 170);
+}
+

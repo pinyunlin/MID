@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    margin-bottom: 40px;
+}
+
+canvas {
+    width: 100% !important;
+    max-height: 400px;
+}
+
+.title {
+    color: #030a26;
+    font-size: 24px;
+    text-align: left;
+    border-left: 5px solid #095bae;
+    padding-left: 15px;
+    margin: 30px;
+    margin-top: 70px;
+}

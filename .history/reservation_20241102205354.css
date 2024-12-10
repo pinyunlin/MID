@@ -1,0 +1,103 @@
+/* 全局設置 */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    color: #000000;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* 選擇區塊 */
+.selection-container {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-between;
+}
+
+.selection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.selection label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #152a4d;
+}
+
+input[type="date"], input[type="time"] {
+    padding: 8px 12px;
+    border: 2px solid #56b3f0;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #56b3f0;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="date"]:focus, input[type="time"]:focus {
+    border-color: #56b3f0;
+    background-color: rgba(89, 62, 62, 0.2);
+}
+
+/* 可借教室區域 */
+.rooms {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(225, 223, 223, 0.1);
+    backdrop-filter: blur(5px);
+
+    text-align: left;
+    color: #333;
+}
+
+.rooms.hidden {
+    display: none;
+}
+
+.rooms h2 {
+    font-size: 18px;
+    color: #7cb1e6;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.scrollable {
+    list-style-type: none;
+    padding-left: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    
+}
+
+#room-list li {
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: rgba(216, 234, 240, 0.8);
+    border-radius: 8px;
+    display: flex;
+    width: 280px;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+
+
+#room-list li:hover {
+    background-color: #56b3f0;
+}

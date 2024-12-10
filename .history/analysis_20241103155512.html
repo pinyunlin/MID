@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教室使用統計</title>
+    <link rel="stylesheet" href="analysis.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-content">
+            <h7 style="font-size: 15px;color: #c9f9f8;">管理學院</h7>
+            <h5 style="font-size: 19px;"><b>教室預借系統</b></h5>
+        </div>
+
+        <div class="navbar-right ml-auto d-flex">
+            <!-- 管理者頁面 -->
+            <div class="nav-item">
+                <a class="nav-link" href="controler.html">管理者介面</a>
+            </div>
+
+            <!-- 教室預借 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link" href="#" id="bookingDropdown">
+                    教室預借
+                </a>
+                <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                    <a class="dropdown-item" href="reservation.html">學年預借</a>
+                    <a class="dropdown-item" href="reservation2.html">平時預借</a>
+                </div>
+            </div>
+            <!-- Sidebar -->
+    <!-- Sidebar -->
+<div class="sidebar">
+    <ul>
+        <li style="--delay: 1;"><a href="controler.html">帳號管理</a></li>
+        <li style="--delay: 2;"><a href="newuser.html">新增權限</a></li>
+        <li style="--delay: 3;"><a href="analysis.html">教室借用分析</a></li>
+        <li style="--delay: 4;"><a href="term-setting.html">學期時段設定</a></li>
+        <li style="--delay: 5;"><a href="history_data.html">歷史借用資料</a></li>
+    </ul>
+</div>
+
+
+            <!-- 個人歷史預借 -->
+            <div class="nav-item">
+                <a class="nav-link" href="reservation_record.html">預借紀錄</a>
+            </div>
+
+            <!-- 個人頭像 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="avatar.png" alt="User Avatar" class="avatar">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="login.html">登出</a>
+                </div>
+            </div>
+            <!--主頁-->
+            <div class="nav-item">
+                <a class="nav-link" href="hompage.HTML" style="font-size: 20px"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="reser1">
+
+        <div class="chart-container" >
+            <h3 class="title">學期教室使用總數 </h3>
+            <canvas id="barChart" style="margin-left: 100px;margin-top: 50px;"></canvas>
+        </div>
+
+        <div class="chart-container" style="height: 300px;">
+            <h3  class="title">教室使用率</h3>
+            <canvas id="pieChart" style="margin-left: 80px;margin-top: 50px;"></canvas>
+        </div>
+
+        <div class="chart-container" style="height: 300px;">
+            <h3  class="title">教室每月使用總數 (折線圖)</h3>
+            <canvas id="lineChart" style="margin-left: 100px;margin-top: 50px;"></canvas>
+        </div>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>輔仁大學管理學院 | 電話：02-1234-5678 | 電郵：info@fju.edu.tw</p>
+        <link rel="stylesheet" href="major.css">
+    </footer>
+    
+    <script src="analysis.js"></script>
+</body>
+</html>

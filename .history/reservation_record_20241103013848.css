@@ -1,0 +1,336 @@
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 導航欄 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #095bae;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* 內容 */
+.navbar-content h7,
+.navbar-content h5 {
+    color: #fcfcfc;
+    margin: 0;
+}
+
+/* 導航項目 */
+.navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* 連結 */
+.nav-link {
+    color: #ffffff;
+    margin-right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* 連結懸停效果 */
+.nav-link:hover {
+    color: #c9f9f8;
+}
+
+/* 個人頭像 */
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* 主要區域 */
+.main-section {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1c0c77;
+    text-align: center;
+    padding-top: 100px; /* 保留空間給固定的 Navbar */
+}
+
+.cover-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.cover-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cover-content button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #095bae;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cover-content button:hover {
+    background-color: #c9f9f8;
+}
+
+/* 頁尾 */
+.footer {
+    background-color: #095bae;
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 轉場效果 */
+.page-transition {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* 淡出效果 */
+.page-transition.fade-out {
+    opacity: 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .cover-content h2 {
+        font-size: 2em;
+    }
+
+    .cover-content p {
+        font-size: 1em;
+    }
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.reser1 {
+    padding: 100px;
+    padding-top: 150px;
+}
+
+/* 下拉選單樣式 */
+.dropdown-menu {
+    display: none; /* 預設隱藏下拉選單 */
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.578);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    z-index: 1000;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block; /* 滑鼠懸停顯示下拉選單 */
+}
+
+.dropdown-item {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #bbcfd1bb; /* 懸停效果 */
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.title {
+    color: #122061;
+    font-size: 24px;
+    text-align: left;
+    border-left: 5px solid #095bae;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #095bae;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #adc6ee;
+}
+
+.status-btn {
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    background-color: transparent;
+    margin: 5px;
+}
+
+.status-btn:hover {
+    background-color: #e8f5e9;
+}
+
+.add-button {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color:#095bae;
+    color: rgb(225, 98, 98);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #1a62ab;
+    color: white;
+}
+
+/* 狀態的樣式 */
+.status-completed {
+    color: white;
+    background-color: #3d418a;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-in-progress {
+    color: white;
+    background-color: #4c60af;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-not-started {
+    color: white;
+    background-color: #3734db;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* 刪除按鈕 */
+.delete-btn {
+    color: #6a2922;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* 隱藏刪除按鈕 */
+.hidden {
+    display: none;
+}
+
+/* 交錯的背景色 */
+tbody tr:nth-child(odd) {
+    background-color: #ededee;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 10px;
+}
+/* 狀態按鈕樣式 */
+.status-button {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3c418a;
+    background-color: #e8f5e9;
+    text-align: center;
+}
+
+.status-completed {
+    border-color: #b5cbe1;
+    color: #a0c8e1;
+    background-color: #e8f9fa;
+}
+
+.status-in-progress {
+    border-color: #5db4ee;
+    color: #41a7cf;
+    background-color: #b7e1ff;
+}
+
+.status-not-started {
+    
+    border-color: #071ff4;
+    color: #355ad3;
+    background-color: #b2d2ec;
+}
+
+/* 隱藏刪除按鈕 */
+.delete-btn {
+    color: #ea7f73;
+    cursor: pointer;
+    display: inline-block;
+}
+.hidden {
+    display: none;
+}
+/* 刪除按鈕樣式 */
+.delete-btn {
+    color: #042dff;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-btn:hover {
+    color: rgb(255, 170, 170);
+}
+

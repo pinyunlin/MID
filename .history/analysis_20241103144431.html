@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統計資料</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://upload.wikimedia.org/wikipedia/zh/thumb/d/da/Fu_Jen_Catholic_University_logo.svg/1200px-Fu_Jen_Catholic_University_logo.svg.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --p-color: #798cd0;
+            --s-color: #55659c;
+            --th-color: #adbae8;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background-color: rgb(240, 240, 240);
+        }
+
+        #pagetop {
+            position: fixed;
+            width: 100%;
+            z-index: 100000;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            margin-top: 50px;
+        }
+
+        .nav-tabs .nav-link {
+            background-color: white;
+            border: 1px solid #c8c8c8;
+            color: #323232;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        .nav-tabs .nav-link.active:hover {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        .nav-tabs .nav-link:hover {
+            background-color: white;
+            color: var(--p-color);
+            border: 1px solid #c8c8c8;
+        }
+
+        .navbar {
+            border-bottom: 5px solid var(--p-color);
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .whitebg {
+            background-color: rgb(255, 255, 255);
+        }
+
+        #go-top-btn {
+            background-color: var(--p-color);
+            border: 0px;
+        }
+
+        #go-top-btn:hover {
+            background-color: #384366;
+            border: 0px;
+            color: rgb(240, 240, 240);
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <a name="top"></a>
+    <form class="d-flex w-100" style="top:90vh; position: fixed; padding-right: 10px;">
+        <a button class="btn btn-outline-light ms-auto" href="#top" id="go-top-btn">▲</button></a>
+    </form>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg" id="pagetop">
+        <div class="container-fluid">
+            <img src="https://upload.wikimedia.org/wikipedia/zh/thumb/d/da/Fu_Jen_Catholic_University_logo.svg/1200px-Fu_Jen_Catholic_University_logo.svg.png"
+                alt="..." width="30px" style="filter: brightness(220%);">
+            <a class="navbar-brand" href="主頁.php">　輔仁大學產業實習平台</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container content" style="background-color: rgb(240, 240, 240);">
+        <div class="row">
+            <div class="col">
+                <div class="container">
+                    <div class="row py-5">
+                        <div class="col whitebg">
+                            <div class="center" style="margin-top: 20px; margin-bottom: 20px;">
+                                <h2>統計資料</h2>
+                            </div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item active dark">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#report"
+                                        type="button">報告書上傳件數</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#people"
+                                        type="button">總使用人比例</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#usecount"
+                                        type="button">一週使用人數</button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <!-- 報告書上傳件數圖表 -->
+                                <div class="tab-pane show active" id="report">
+                                    <canvas id="myChart2"></canvas>
+                                    <script>
+                                        const chartElement2 = document.getElementById('myChart2');
+                                        new Chart(chartElement2, {
+                                            data: {
+                                                labels: ['108', '109', '110', '111', '112'],
+                                                datasets: [
+                                                    { type: 'bar', label: '實習總人數', data: [297, 338, 324, 365, 334] },
+                                                    { type: 'line', label: '報告件數', data: [256, 305, 312, 341, 326] }
+                                                ]
+                                            }
+                                        });
+                                    </script>
+                                </div>
+
+                                <!-- 使用人數比例圖表 -->
+                                <div class="tab-pane" id="people">
+                                    <canvas id="myChart1"></canvas>
+                                    <script>
+                                        const chartElement1 = document.getElementById('myChart1');
+                                        const data = {
+                                            labels: ['學生', '企業單位', '教職員'],
+                                            datasets: [{ label: '人數比例', data: [520, 80, 177] }]
+                                        };
+                                        new Chart(chartElement1, { type: 'pie', data: data });
+                                    </script>
+                                </div>
+
+                                <!-- 一週使用人數折線圖 -->
+                                <div class="tab-pane" id="usecount">
+                                    <canvas id="usageChart"></canvas>
+                                    <script>
+                                        // 一週使用人數隨機生成，平日比週末多
+                                        function getRandomData(min, max, size) {
+                                            return Array.from({ length: size }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+                                        }
+                                        const weekdayData = getRandomData(100, 150, 5); // 平日數據：100-150人
+                                        const weekendData = getRandomData(80, 100, 2);  // 週末數據：80-100人
+                                        const data = weekdayData.concat(weekendData);    // 合併平日和週末數據
+
+                                        const labels = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'];
+
+                                        // 設定圖表數據
+                                        const usageChartConfig = {
+                                            type: 'line',
+                                            data: {
+                                                labels: labels,
+                                                datasets: [{
+                                                    label: '使用人數 (人)',
+                                                    data: data,
+                                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                                    tension: 0.3,
+                                                    fill: true
+                                                }]
+                                            },
+                                            options: {
+                                                responsive: true,
+                                                plugins: {
+                                                    legend: {
+                                                        display: true,
+                                                        position: 'top'
+                                                    }
+                                                },
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true,
+                                                        suggestedMax: 150
+                                                    }
+                                                }
+                                            }
+                                        };
+
+                                        // 初始化並渲染折線圖
+                                        new Chart(document.getElementById('usageChart'), usageChartConfig);
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 bg-dark" style="margin-top: 5vh;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="https://upload.wikimedia.org/wikipedia/zh/thumb/d/da/Fu_Jen_Catholic_

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約記錄</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ㄩ.css">
+   
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-content">
+            <h7 style="font-size: 15px;color: #c9f9f8;">管理學院</h7>
+            <h5 style="font-size: 19px;"><b>教室預借系統</b></h5>
+        </div>
+
+        <div class="navbar-right ml-auto d-flex">
+            <!-- 管理者頁面 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    管理者頁面
+                </a>
+                <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                    <a class="dropdown-item" href="#">設定頁面</a>
+                    <a class="dropdown-item" href="#">教室使用狀況頁面</a>
+                </div>
+            </div>
+
+            <!-- 教室預借 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="bookingDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    教室預借
+                </a>
+                <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                    <a class="dropdown-item" href="#">學年預借</a>
+                    <a class="dropdown-item" href="#">平時預借</a>
+                </div>
+            </div>
+
+            <!-- 個人歷史預借 -->
+            <div class="nav-item">
+                <a class="nav-link" href="#">預借紀錄</a>
+            </div>
+
+            <!-- 個人頭像 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="avatar.png" alt="User Avatar" class="avatar">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="#">帳號管理</a>
+                    <a class="dropdown-item" href="#">登出</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="reser1">
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>輔仁大學管理學院 | 電話：02-1234-5678 | 電郵：info@fju.edu.tw</p>
+        <script src="front_page.JS"></script>
+    </footer>
+
+    <script>
+        function deleteReservation(button) {
+            const row = button.closest('tr');
+            if (confirm('確定要刪除這筆預約嗎？')) {
+                row.remove();
+            }
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#reservationTable tr');
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(input));
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

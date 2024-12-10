@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教室預約系統</title>
+    <link rel="stylesheet" href="reservation.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>教室預約系統</h1>
+        
+        <!-- 日期和時段選擇 -->
+        <div class="selection-container">
+            <div class="selection">
+                <label for="date">選擇日期:</label>
+                <input type="date" id="date" required>
+
+                <label for="time-slot">選擇時段:</label>
+                <select id="time-slot" required>
+                    <option value="">請選擇時段</option>
+                    <option value="morning">上午 (09:00 - 12:00)</option>
+                    <option value="afternoon">下午 (13:00 - 16:00)</option>
+                    <option value="evening">晚上 (17:00 - 20:00)</option>
+                </select>
+            </div>
+
+            <!-- 可借教室顯示區域 -->
+            <div id="available-rooms" class="rooms hidden">
+                <h2>可借教室</h2>
+                <ul id="room-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="reservation.js"></script>
+</body>
+</html>

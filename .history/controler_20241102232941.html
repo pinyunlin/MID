@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約記錄</title>
+    <link rel="stylesheet" href="controler.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-content">
+            <h7 style="font-size: 15px;color: #c9f9f8;">管理學院</h7>
+            <h5 style="font-size: 19px;"><b>教室預借系統</b></h5>
+        </div>
+
+        <div class="navbar-right ml-auto d-flex">
+
+                <a class="nav-link" href="controler.html">管理者介面</a>
+
+
+            <!-- 教室預借 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link" href="#" id="bookingDropdown">
+                    教室預借
+                </a>
+                <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                    <a class="dropdown-item" href="reservation.html">學年預借</a>
+                    <a class="dropdown-item" href="reservation2.html">平時預借</a>
+                </div>
+            </div>
+
+            <!-- 個人歷史預借 -->
+            <div class="nav-item">
+                <a class="nav-link" href="reservation_record.html">預借紀錄</a>
+            </div>
+
+            <!-- 個人頭像 -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="avatar.png" alt="User Avatar" class="avatar">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="login.html">登出</a>
+                </div>
+            </div>
+            <!--主頁-->
+            <div class="nav-item">
+                <a class="nav-link" href="hompage.HTML" style="font-size: 20px"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="reser1">
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title" >學期時間設定</h1>
+        <!-- 學期時間設定 -->
+        <section class="admin-section term-setting">
+        
+            <form action="controler.php" method="POST">
+                <label for="termStart">學期開始日期：</label>
+                <input type="date" id="termStart" name="termStart" required>
+                <label for="termEnd">學期結束日期：</label>
+                <input type="date" id="termEnd" name="termEnd" required>
+                <button type="submit">確認</button>
+            </form>
+        </section>
+
+        <h1 class="title">帳號管理</h1>
+        <!-- 帳號管理 -->
+        <section class="admin-section account-management">
+            <form action="account_management.php" method="POST">
+                <label for="account">帳號：</label>
+                <input type="text" id="account" name="account" required>
+                <label for="role">角色：</label>
+                <select id="role" name="role">
+                    <option value="admin">管理者</option>
+                    <option value="user">使用者</option>
+                </select>
+                <button type="submit">新增帳號</button>
+            </form>
+        </section>
+
+        <h1 class="title">帳號管理</h1>
+        <!-- 查看所有使用者資料 -->
+        <section class="admin-section user-data">
+            <h3>所有所有使用者資料</h3>
+            <table class="table" id="userTable">
+                <thead>
+                    <tr>
+                        <th>帳號</th>
+                        <th>角色</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 使用者資料將由 JavaScript 動態插入 -->
+                </tbody>
+            </table>
+            <div id="userPagination" class="pagination"></div>
+        </section>
+
+        <!-- 使用者借用的教室資料 -->
+        <section class="admin-section reservation-data">
+            <h3>使用者借用的教室</h3>
+            <table class="table" id="reservationTable">
+                <thead>
+                    <tr>
+                        <th>帳號</th>
+                        <th>教室</th>
+                        <th>使用日期</th>
+                        <th>時間</th>
+                        <th>用途</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 教室借用資料將由 JavaScript 動態插入 -->
+                </tbody>
+            </table>
+            <div id="reservationPagination" class="pagination"></div>
+        </section>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>輔仁大學管理學院 | 電話：02-1234-5678 | 電郵：info@fju.edu.tw</p>
+        <script src="front_page.JS"></script>
+    </footer>
+
+    <script>
+        
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#reservationTable tr');
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(input));
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 導航欄 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #095bae;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-content h7,
+.navbar-content h5 {
+    color: #fcfcfc;
+    margin: 0;
+}
+
+/* 導航連結 */
+.navbar-right .nav-link {
+    color: #ffffff;
+    margin-right: 20px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navbar-right .nav-link:hover {
+    color: #c9f9f8;
+}
+
+/* 主頁區域 */
+.main-section {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.cover-content h2 {
+    font-size: 2.5em;
+    color: #1c0c77;
+    margin-bottom: 10px;
+}
+
+.cover-content p {
+    font-size: 1.2em;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.function-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.icon-item {
+    text-align: center;
+}
+
+.icon-item img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s;
+}
+
+.icon-item img:hover {
+    transform: scale(1.1);
+}
+
+.icon-item p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333333;
+}
+
+/* 說明欄 */
+.info-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.info-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #095bae;
+}
+
+.info-section p {
+    font-size: 1em;
+    color: #333333;
+    line-height: 1.5;
+}
+
+/* 頁尾 */
+.footer {
+    background-color: #095bae;
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9em;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .cover-content h2 {
+        font-size: 2em;
+    }
+
+    .cover-content p {
+        font-size: 1em;
+    }
+
+    .function-icons {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
